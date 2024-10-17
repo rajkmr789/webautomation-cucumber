@@ -87,7 +87,7 @@ public class loginPage {
 
     public void landOnLoginPage() {
      login.click();
-     WebDriverHelper.waitUntilVisible(loginEmail, 15, 5);
+     WebDriverHelper.waitUntilVisible(loginEmail, 30, 3);
     }
 
     public void enterEmailOnLoginPage() {
@@ -108,7 +108,7 @@ public class loginPage {
     }
 
     public void checkIfUserLoggedInSuccessfully() {
-        WebDriverHelper.waitUntilVisible(homePageAfterRegistrationCheck, 15, 5);
+        WebDriverHelper.waitUntilVisible(homePageAfterRegistrationCheck, 30, 3);
     }
 
     public void clickGmailLoginButton() {

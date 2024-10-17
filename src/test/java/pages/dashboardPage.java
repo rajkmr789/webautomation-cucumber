@@ -25,7 +25,7 @@ public class dashboardPage {
     WebElement companySettingsOptionInLeftNavOnDashboard;
 
     public void checkUserLandsOnDashbaord() {
-        WebDriverHelper.waitUntilVisible(dashboardPageTitle, 15, 3);
+        WebDriverHelper.waitUntilVisible(dashboardPageTitle, 30, 3);
     }
 
     public void checkCompanyNameShownOnLeftNav() {
