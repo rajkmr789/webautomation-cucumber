@@ -27,6 +27,7 @@ public class dashboardPage {
 
     public void checkUserLandsOnDashbaord() {
         WebDriverHelper.waitUntilPageCompletelyLoad();
+        WebDriverHelper.waitUntilInvisibilityOfElementLocated("//h3[contains(text(), 'Company created')]");
         WebDriverHelper.waitUntilVisible(instaBeeLogoOnDashboard, 30, 3);
     }
 
