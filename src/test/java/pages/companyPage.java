@@ -82,7 +82,7 @@ public class companyPage {
         businessTypeDropdown.selectByVisibleText("Footwear");
         businessCategoryRetail.click();
         createCompanyButton.click();
-        Thread.sleep(6000);
+        Thread.sleep(10000);
     }
 
     public void validateSectionsOnCompanySettingsPage() {
