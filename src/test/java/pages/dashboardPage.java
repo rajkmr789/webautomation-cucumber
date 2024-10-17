@@ -25,8 +25,8 @@ public class dashboardPage {
     @FindBy(xpath = "//span[contains(text(), 'Company Settings')]")
     WebElement companySettingsOptionInLeftNavOnDashboard;
 
-    public void checkUserLandsOnDashbaord() {
-        WebDriverHelper.waitUntilPageCompletelyLoad();
+    public void checkUserLandsOnDashbaord() throws InterruptedException {
+        Thread.sleep(5000);
         WebDriverHelper.waitUntilVisible(instaBeeLogoOnDashboard, 30, 3);
     }
 
