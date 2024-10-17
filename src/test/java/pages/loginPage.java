@@ -78,6 +78,7 @@ public class loginPage {
     public void instaBeeWebLaunch() throws InterruptedException {
         driver.get(platform_url);
         WebDriverHelper.waitUntilPageCompletelyLoad();
+        driver.manage().window().maximize();
         Thread.sleep(3000);
         if (driver.findElements(By.xpath("//button[contains(text(),'Allow cookies')]")).size() > 0) {
             allowCookiesButton.click();
