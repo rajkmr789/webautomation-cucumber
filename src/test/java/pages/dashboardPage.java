@@ -17,9 +17,6 @@ public class dashboardPage {
      @FindBy(xpath = "//h1[contains(text(), \"Dashboard\")]")
      WebElement dashboardPageTitle;
 
-      @FindBy(xpath = "//h3[contains(text(), \"Create company\")]")
-      WebElement createCompanyPopup;
-
 
     @FindBy(xpath = "//button[contains(@class, 'fi-tenant-menu')]")
     WebElement menuOnLeftNav;
@@ -29,7 +26,7 @@ public class dashboardPage {
     WebElement companySettingsOptionInLeftNavOnDashboard;
 
     public void checkUserLandsOnDashbaord() {
-        WebDriverHelper.waitUntilInvisibilityOfElementLocated("//h3[contains(text(), 'Create company')]");
+        WebDriverHelper.waitUntilPageCompletelyLoad();
         WebDriverHelper.waitUntilVisible(dashboardPageTitle, 30, 3);
     }
 
