@@ -81,6 +81,8 @@ public class companyPage {
         Select businessTypeDropdown = new Select(driver.findElement(By.xpath("//select[contains(@id,'data.business_type_id')]")));
         businessTypeDropdown.selectByVisibleText("Footwear");
         businessCategoryRetail.click();
+        WebDriverHelper.scrollToElement(createCompanyButton);
+        WebDriverHelper.waitUntilClickable(createCompanyButton, 30, 3);
         createCompanyButton.click();
     }
 
