@@ -14,9 +14,9 @@ public class dashboardPage {
         PageFactory.initElements(driver, this);
     }
 
-     @FindBy(xpath = "//h1[contains(text(), \"Dashboard\")]")
-     WebElement dashboardPageTitle;
 
+    @FindBy(xpath = "//img[contains(@src,'logo-wording')]")
+    WebElement instaBeeLogoOnDashboard;
 
     @FindBy(xpath = "//button[contains(@class, 'fi-tenant-menu')]")
     WebElement menuOnLeftNav;
@@ -27,7 +27,7 @@ public class dashboardPage {
 
     public void checkUserLandsOnDashbaord() {
         WebDriverHelper.waitUntilPageCompletelyLoad();
-        WebDriverHelper.waitUntilVisible(dashboardPageTitle, 30, 3);
+        WebDriverHelper.waitUntilVisible(instaBeeLogoOnDashboard, 30, 3);
     }
 
     public void checkCompanyNameShownOnLeftNav() {

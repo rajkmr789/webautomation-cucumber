@@ -12,7 +12,7 @@ import io.cucumber.testng.CucumberOptions;
                 "resources",
                 "stepDefinitions","pages"},
 
-        tags = "@Portal",
+        tags = "@Registration or @Company",
         monochrome = false,
         dryRun = false
 )
