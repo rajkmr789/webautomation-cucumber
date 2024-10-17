@@ -10,7 +10,7 @@ Feature: Create company flow
     And user should land on home page successfully
     And user enters the GSTIN value and observe all the details are auto populated
     And select name, business type and business category and click create company
-    #Then user lands on dashboard
+    Then user lands on dashboard
     And company created is displayed on left navigation options on dashboard page
 
 

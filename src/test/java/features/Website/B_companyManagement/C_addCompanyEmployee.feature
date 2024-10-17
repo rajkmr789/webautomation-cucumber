@@ -7,7 +7,7 @@ Feature: Validate the company employees addition flow
     And user enters email on the login page
     And user enters password on the login page
     And user clicks submit login button on the login page
-    #And user lands on dashboard
+    And user lands on dashboard
     And user lands on company settings page
 
 
