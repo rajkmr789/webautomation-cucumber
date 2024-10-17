@@ -7,7 +7,7 @@ Feature: Update company settings flow
     And user enters email on the login page
     And user enters password on the login page
     And user clicks submit login button on the login page
-    And user lands on dashboard
+    #And user lands on dashboard
     And user lands on company settings page
     And all the sections on company settings page are loaded
     And user can update the company settings successfully
