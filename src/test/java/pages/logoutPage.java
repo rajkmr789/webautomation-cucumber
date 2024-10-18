@@ -42,4 +42,3 @@ public class logoutPage {
         logOutButtonLink.click();
     }
 }
-

@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,7 +11,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-import static support.DeviceCreation.driver;
 import static support.PropertiesReader.Password;
 
 public class registrationPage {
@@ -49,15 +47,16 @@ public class registrationPage {
     @FindBy(id = "codeIndex_0")
     WebElement OTP;
 
-
-    public final String emailAddress = "auto" + WebDriverHelper.getRandomAlphanumericEmailString(5, "@yopmail.com").toLowerCase();
-    private final String mobileNumber = "9"+ WebDriverHelper.getRandomNumeric(9);
+    public final String emailAddress = "auto"
+            + WebDriverHelper.getRandomAlphanumericEmailString(5, "@yopmail.com").toLowerCase();
+    private final String mobileNumber = "9" + WebDriverHelper.getRandomNumeric(9);
 
     public registrationPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
+
     public void landOnRegistrationPage() {
-     registerButton.click();
+        registerButton.click();
         WebDriverHelper.waitUntilVisible(registrationPageTitleCheck, 15, 5);
     }
 
@@ -66,9 +65,8 @@ public class registrationPage {
     }
 
     public void enterRegEmail() {
-     regEmail.sendKeys(emailAddress);
+        regEmail.sendKeys(emailAddress);
     }
-
 
     public void enterRegMobile() {
         regMobile.sendKeys(mobileNumber);
@@ -78,7 +76,6 @@ public class registrationPage {
         regPassword.sendKeys(Password);
     }
 
-
     public void enterRegConfirmPassword() {
         regConfirmPassword.sendKeys(Password);
     }
@@ -87,7 +84,7 @@ public class registrationPage {
         WebDriverHelper.waitUntilClickable(regSubmitButton, 15, 5);
         regSubmitButton.click();
 
-        //Data Entry to CommonData
+        // Data Entry to CommonData
         FileInputStream in1 = new FileInputStream("data/commonData.properties");
         props.load(in1);
         in1.close();
@@ -104,7 +101,5 @@ public class registrationPage {
 
     public void submitOTP() throws InterruptedException {
         OTP.sendKeys(mailinatorPage.OTPfull);
-        }
     }
-
-
+}
