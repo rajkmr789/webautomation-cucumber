@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.logging.Level;
 
-
 public class DeviceCreation {
     private static final DesiredCapabilities capabilities = new DesiredCapabilities();
     public static WebDriver driver;
@@ -30,15 +29,13 @@ public class DeviceCreation {
     final ChromeOptions options = new ChromeOptions();
     LoggingPreferences logPrefs = new LoggingPreferences();
 
-
-
     @Before("@Portal")
     public void setUp(Scenario scenario) throws IOException {
         propertiesReader.loadProperties();
         logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
         HashMap<String, Object> chromePrefs = new HashMap<>();
         chromePrefs.put("download.default_directory", System.getProperty("user.dir"));
-        chromePrefs.put("autofill.profile_enabled","false");
+        chromePrefs.put("autofill.profile_enabled", "false");
         options.setExperimentalOption("prefs", chromePrefs);
         log.info("Currently executing Scenario -->" + scenario.getName());
         DeviceCreation.scenario = scenario;
@@ -81,6 +78,7 @@ public class DeviceCreation {
         }
         new World().driverClass();
     }
+
     @After("@Portal")
     public void embedScreenshot(Scenario scenario) {
         driver.quit();

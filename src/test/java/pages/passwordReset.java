@@ -47,7 +47,6 @@ public class passwordReset {
     @FindBy(xpath = "//div[contains(text(),'Your password has been')]")
     WebElement passwordRestConfirmationMessageOnLoginPage;
 
-
     public void openProfilePage() {
         WebDriverHelper.waitUntilVisible(profilePageButton, 15, 5);
         profilePageButton.click();
@@ -66,7 +65,7 @@ public class passwordReset {
         confirmPasswordField.sendKeys(Password);
     }
 
-    public void clickSaveChangePasswordButton()  {
+    public void clickSaveChangePasswordButton() {
         WebDriverHelper.scrollToElement(saveChangePasswordButton);
         saveChangePasswordButton.click();
         WebDriverHelper.scrollToTopOfThePage();
@@ -87,7 +86,7 @@ public class passwordReset {
     }
 
     public void checkPasswordResetEmailSentSuccessfully() {
-      WebDriverHelper.waitUntilVisible(passwordRestEmailSentConfirmationMessage, 15, 3);
+        WebDriverHelper.waitUntilVisible(passwordRestEmailSentConfirmationMessage, 15, 3);
     }
 
     public void enterDetailsOnPasswordResetPage() {
