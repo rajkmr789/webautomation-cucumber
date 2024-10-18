@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import support.WebDriverHelper;
@@ -18,7 +17,7 @@ public class dashboardPage {
     public dashboardPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
-    
+
     @FindBy(xpath = "//button[contains(@class, 'fi-tenant-menu')]")
     WebElement menuOnLeftNav;
 
