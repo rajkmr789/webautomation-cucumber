@@ -14,7 +14,6 @@ public class loginSteps {
     @Given("user launches the InstaBee portal on browser")
     public void user_launches_the_InstaBee_portal_on_browser() throws InterruptedException {
         objLoginPage.instaBeeWebLaunch();
-        WebDriverHelper.waitUntilPageCompletelyLoad();
     }
 
     @Then("user lands on login page by clicking the login button")

@@ -7,7 +7,7 @@ import static support.World.objDashboardPage;
 
 public class dashboardSteps {
     @And("user lands on dashboard")
-    public void user_lands_on_dashboard() {
+    public void user_lands_on_dashboard() throws InterruptedException {
         objDashboardPage.checkUserLandsOnDashbaord();
     }
 

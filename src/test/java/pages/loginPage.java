@@ -78,16 +78,19 @@ public class loginPage {
     public void instaBeeWebLaunch() throws InterruptedException {
         driver.get(platform_url);
         WebDriverHelper.waitUntilPageCompletelyLoad();
+        driver.manage().window().maximize();
         Thread.sleep(3000);
-        if (driver.findElements(By.xpath("//button[contains(text(),'Allow cookies')]")).size()>0){
+        if (driver.findElements(By.xpath("//button[contains(text(),'Allow cookies')]")).size() > 0) {
             allowCookiesButton.click();
             Thread.sleep(3000);
         }
     }
 
     public void landOnLoginPage() {
-     login.click();
-     WebDriverHelper.waitUntilVisible(loginEmail, 15, 5);
+        WebDriverHelper.waitUntilPageCompletelyLoad();
+        login.click();
+        WebDriverHelper.waitUntilPageCompletelyLoad();
+        WebDriverHelper.waitUntilVisible(loginEmail, 30, 3);
     }
 
     public void enterEmailOnLoginPage() {
@@ -108,7 +111,7 @@ public class loginPage {
     }
 
     public void checkIfUserLoggedInSuccessfully() {
-        WebDriverHelper.waitUntilVisible(homePageAfterRegistrationCheck, 15, 5);
+        WebDriverHelper.waitUntilVisible(homePageAfterRegistrationCheck, 30, 3);
     }
 
     public void clickGmailLoginButton() {
@@ -123,8 +126,8 @@ public class loginPage {
     }
 
     public void enterGmailPassword() {
-WebDriverHelper.waitUntilVisible(gmailPassword, 15, 5);
-gmailPassword.sendKeys("InstaBee123!");
+        WebDriverHelper.waitUntilVisible(gmailPassword, 15, 5);
+        gmailPassword.sendKeys("InstaBee123!");
     }
 
 

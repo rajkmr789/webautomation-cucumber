@@ -6,16 +6,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import support.WebDriverHelper;
 
+import java.util.ArrayList;
+
 import static org.testng.AssertJUnit.assertEquals;
+import static support.DeviceCreation.driver;
 import static support.PropertiesReader.CompanyNameTest;
+import static support.PropertiesReader.yopMail_url;
 
 public class dashboardPage {
     public dashboardPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
-
-    @FindBy(xpath = "//h1[contains(text(), \"Dashboard\")]")
-    WebElement dashboardPageTitle;
 
     @FindBy(xpath = "//button[contains(@class, 'fi-tenant-menu')]")
     WebElement menuOnLeftNav;
@@ -24,8 +25,10 @@ public class dashboardPage {
     @FindBy(xpath = "//span[contains(text(), 'Company Settings')]")
     WebElement companySettingsOptionInLeftNavOnDashboard;
 
-    public void checkUserLandsOnDashbaord() {
-        WebDriverHelper.waitUntilVisible(dashboardPageTitle, 15, 3);
+    public void checkUserLandsOnDashbaord() throws InterruptedException {
+       WebDriverHelper.waitUntilPageCompletelyLoad();
+       Thread.sleep(5000);
+       WebDriverHelper.waitUntilVisible(menuOnLeftNav, 30, 5);
     }
 
     public void checkCompanyNameShownOnLeftNav() {
