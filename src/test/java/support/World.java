@@ -36,4 +36,3 @@ public class World {
         World.objDashboardPage = new dashboardPage(driver);
     }
 }
-

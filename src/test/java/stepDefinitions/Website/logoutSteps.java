@@ -11,13 +11,10 @@ public class logoutSteps {
         objLogoutPage.clickOnOptionsMenu();
     }
 
-
-
     @And("user clicks sign out button")
     public void user_clicks_sign_out_button() {
-    objLogoutPage.clickOnSignOutOption();
+        objLogoutPage.clickOnSignOutOption();
     }
-
 
     @And("user clicks logout link")
     public void user_clicks_logout_link() {
@@ -26,9 +23,7 @@ public class logoutSteps {
 
     @Then("user gets logged out successfully")
     public void user_gets_logged_out_successfully() {
-     objLogoutPage.checkIfUserLoggedOut();
+        objLogoutPage.checkIfUserLoggedOut();
     }
-
-
 
 }

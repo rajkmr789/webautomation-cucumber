@@ -1,7 +1,9 @@
 package pages;
 
-
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import support.WebDriverHelper;
@@ -13,10 +15,10 @@ import static support.PropertiesReader.NewRegisterUserEmail;
 import static support.PropertiesReader.yopMail_url;
 import static support.World.objRegistrationPage;
 
-
 public class mailinatorPage {
 
     public static String OTPfull;
+
     public mailinatorPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
@@ -46,13 +48,15 @@ public class mailinatorPage {
     public void getTheOTPfromEmailForLogin() throws InterruptedException {
         getTheOTPfromEmail(NewRegisterUserEmail);
     }
+
     public void getTheOTPfromEmail(String email) throws InterruptedException {
         driver.switchTo().newWindow(WindowType.TAB);
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
         driver.get(yopMail_url);
         WebDriverHelper.waitUntilPageCompletelyLoad();
-        if (driver.findElements(By.xpath("//p[contains(@class, 'fc-button-label') and text() = 'Consent']")).size()>0){
+        if (driver.findElements(By.xpath("//p[contains(@class, 'fc-button-label') and text() = 'Consent']"))
+                .size() > 0) {
             giveConsentToCookiePopup.click();
         }
         Thread.sleep(3000);
@@ -61,11 +65,10 @@ public class mailinatorPage {
         emailSearchSubmit.click();
         WebDriverHelper.waitUntilVisible(mailIframe, 30, 5);
         driver.switchTo().frame(mailIframe);
-        OTPfull = verificationCodeExtract.getText().substring(verificationCodeExtract.getText().length() -6);
+        OTPfull = verificationCodeExtract.getText().substring(verificationCodeExtract.getText().length() - 6);
         driver.switchTo().window(tabs.get(0));
         WebDriverHelper.waitUntilPageCompletelyLoad();
     }
-
 
     public void checkPlayerLandsOnPasswordResetPageFromEmail() throws InterruptedException {
         driver.switchTo().newWindow(WindowType.TAB);
@@ -73,7 +76,8 @@ public class mailinatorPage {
         driver.switchTo().window(tabs.get(1));
         driver.get(yopMail_url);
         WebDriverHelper.waitUntilPageCompletelyLoad();
-        if (driver.findElements(By.xpath("//p[contains(@class, 'fc-button-label') and text() = 'Consent']")).size()>0){
+        if (driver.findElements(By.xpath("//p[contains(@class, 'fc-button-label') and text() = 'Consent']"))
+                .size() > 0) {
             giveConsentToCookiePopup.click();
         }
         Thread.sleep(3000);

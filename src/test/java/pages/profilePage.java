@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import support.WebDriverHelper;
 
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -15,12 +14,12 @@ import java.util.Properties;
 import static org.testng.AssertJUnit.assertEquals;
 import static support.DeviceCreation.driver;
 
-
 public class profilePage {
 
     Properties props = new Properties();
-    public final String newProfilename=WebDriverHelper.getRandomAlphabeticString(5);
-    public final String newProfileEmail = "auto" + WebDriverHelper.getRandomAlphanumericEmailString(5, "@yopmail.com").toLowerCase();
+    public final String newProfilename = WebDriverHelper.getRandomAlphabeticString(5);
+    public final String newProfileEmail = "auto"
+            + WebDriverHelper.getRandomAlphanumericEmailString(5, "@yopmail.com").toLowerCase();
     public final String newPhone = "9" + WebDriverHelper.getRandomNumeric(9);
 
     public profilePage(WebDriver driver) {
@@ -84,12 +83,11 @@ public class profilePage {
         profileEmail.sendKeys(newProfileEmail);
         profilePhone.clear();
         profilePhone.sendKeys(newPhone);
-        WebDriverHelper.waitUntilClickable(savePersonalInfoUpdateButton,15, 3);
+        WebDriverHelper.waitUntilClickable(savePersonalInfoUpdateButton, 15, 3);
         savePersonalInfoUpdateButton.click();
         Thread.sleep(3000);
 
-
-        //Data Entry to CommonData
+        // Data Entry to CommonData
         FileInputStream in1 = new FileInputStream("data/commonData.properties");
         props.load(in1);
         in1.close();
@@ -98,7 +96,6 @@ public class profilePage {
         props.setProperty("NewRegisterMobileNumber", newPhone);
         props.store(out1, null);
         out1.close();
-
 
         driver.navigate().refresh();
         Thread.sleep(3000);
