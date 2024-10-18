@@ -2,6 +2,7 @@ package pages;
 
 import io.cucumber.java8.Th;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -39,7 +40,7 @@ public class companyPage {
     @FindBy(xpath = "//span[contains(text(), 'Service')]")
     WebElement businessCategoryService;
 
-    @FindBy(xpath = "//span[contains(text(), 'Create Company')]")
+    @FindBy(xpath = "//span[contains(text(), 'Create Company')]/parent::button")
     WebElement createCompanyButton;
 
     @FindBy(xpath = "//h3[contains(text(), 'Company Name')]")
@@ -70,10 +71,10 @@ public class companyPage {
         GSTINTextField.clear();
         GSTINTextField.sendKeys(CompanyGSTIN);
         companyName.sendKeys("");
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         assertEquals(CompanyPhoneTest, companyPhone.getAttribute("value"));
         driver.navigate().refresh();
-        Thread.sleep(3000);
+        WebDriverHelper.waitUntilPageCompletelyLoad();
     }
 
     public void selectNameBusinessTypeAndCategoryAndClickCreateCompany() throws InterruptedException {
@@ -81,9 +82,9 @@ public class companyPage {
         Select businessTypeDropdown = new Select(driver.findElement(By.xpath("//select[contains(@id,'data.business_type_id')]")));
         businessTypeDropdown.selectByVisibleText("Footwear");
         businessCategoryRetail.click();
-        WebDriverHelper.scrollToElement(createCompanyButton);
-        WebDriverHelper.waitUntilClickable(createCompanyButton, 30, 3);
+        WebDriverHelper.waitUntilClickable(createCompanyButton,15, 3);
         createCompanyButton.click();
+
     }
 
     public void validateSectionsOnCompanySettingsPage() {
